@@ -1,0 +1,59 @@
+@import '~@react-md/button/dist/mixins';
+@import '~@react-md/theme/dist/color-palette';
+@import '~@react-md/button/dist/mixins';
+@import '~@react-md/utils/dist/mixins';
+
+$mobile-padding: 2rem;
+$desktop-padding: 4rem;
+
+:root {
+  --sass-bg: #{$rmd-grey-200};
+  --sass-border: #{$rmd-grey-400};
+}
+
+.dark-theme {
+  --sass-bg: #{rgba($rmd-black-base, 0.42)};
+  --sass-border: #{rgba($rmd-black-base, 0.87)};
+}
+
+.package-sassdoc {
+  @include rmd-utils-desktop-media {
+    padding: 0 $desktop-padding;
+  }
+
+  padding: 0 $mobile-padding;
+
+  &__section {
+    @include rmd-utils-phone-media {
+      @include rmd-typography(headline-2);
+    }
+    @include rmd-utils-desktop-media {
+      margin: 0 #{-$desktop-padding};
+      padding-left: $desktop-padding;
+    }
+
+    background-color: var(--sass-bg);
+    border-bottom: 4px solid var(--sass-border);
+    margin: 0 #{-$mobile-padding};
+    padding: 3.5rem 0 1.5rem $mobile-padding;
+    padding-top: 3.5rem;
+  }
+
+  &__row {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__expandable-source {
+    @include rmd-button-unstyled;
+
+    display: inline-flex;
+    text-align: left;
+    width: 100%;
+
+    pre {
+      width: 100%;
+    }
+  }
+}
